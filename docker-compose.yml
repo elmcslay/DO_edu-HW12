@@ -9,7 +9,7 @@ services:
       source: artifacts
       target: /tmp/hw12/target
 
-  deploy_project:
+  web:
     image: tomcat:9-jre11
     volumes:
     - type: volume
@@ -19,9 +19,14 @@ services:
     - 8080:8080
     depends_on: 
     - build_poject
+    links:
+    - "db:dd"
 
   db:
     image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: dd
     ports:
     - 3306:3306
 
