@@ -7,7 +7,7 @@ services:
     volumes:
     - type: volume
       source: artifacts
-      targer: /root/DO_edu-HW12_CP/target
+      target: /root/DO_edu-HW12_CP/target
 
   deploy_project:
     build:
