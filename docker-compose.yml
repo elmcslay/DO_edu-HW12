@@ -1,23 +1,25 @@
 ---
 version: '3.7'
 services:
-  build:
-    context: /build
-  volume:
-  - type: volume
-    source: artifacts
-    targer: /root/DO_edu-HW12_CP/target
+  build_poject:
+    build:
+      context: /build
+    volume:
+    - type: volume
+      source: artifacts
+      targer: /root/DO_edu-HW12_CP/target
 
-  deploy:
-    context: /deploy
-  volumes:
-  - type: volume
-    source: artifacts
-    targer: /usr/local/tomcat/webapps
-  ports:
-  - 8080:8080
-  depends_on: 
-  - build
+  deploy_project:
+    build:
+      context: /deploy
+    volumes:
+    - type: volume
+      source: artifacts
+      targer: /usr/local/tomcat/webapps
+    ports:
+    - 8080:8080
+    depends_on: 
+    - build_poject
 
 volumes:
   artifacts:
