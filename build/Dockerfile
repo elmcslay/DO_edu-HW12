@@ -1,6 +1,6 @@
 FROM maven:3-ibmjava-8
 RUN apt update && apt install git -y
 
-RUN git clone https://github.com/elmcslay/DO_edu-HW12_CP.git
+RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 
 RUN cd DO_edu-HW12_CP/ && mvn package
