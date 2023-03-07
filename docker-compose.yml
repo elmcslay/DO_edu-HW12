@@ -10,8 +10,7 @@ services:
       target: /tmp/hw12/target
 
   deploy_project:
-    build:
-      context: deploy/
+    image: tomcat:9-jre11
     volumes:
     - type: volume
       source: artifacts
@@ -20,6 +19,11 @@ services:
     - 8080:8080
     depends_on: 
     - build_poject
+
+  db:
+    image: mariadb:10.11
+    ports:
+    - 3306:3306
 
 volumes:
   artifacts:
