@@ -3,7 +3,7 @@ version: '3.7'
 services:
   build_poject:
     build:
-      context: /build
+      context: build/
     volumes:
     - type: volume
       source: artifacts
@@ -11,7 +11,7 @@ services:
 
   deploy_project:
     build:
-      context: /deploy
+      context: deploy/
     volumes:
     - type: volume
       source: artifacts
