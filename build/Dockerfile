@@ -3,4 +3,4 @@ RUN apt update && apt install git -y
 
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 
-RUN cd DO_edu-HW12_CP/ && mvn package
+RUN cd boxfuse-sample-java-war-hello/ && mvn package

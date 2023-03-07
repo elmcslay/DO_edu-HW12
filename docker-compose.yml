@@ -7,7 +7,7 @@ services:
     volumes:
     - type: volume
       source: artifacts
-      target: /root/DO_edu-HW12_CP/target
+      target: /root/boxfuse-sample-java-war-hello/target
 
   deploy_project:
     build:
