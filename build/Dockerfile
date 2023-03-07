@@ -1,6 +1,7 @@
-FROM maven:3-ibmjava-8
+FROM ubuntu:20.04
 RUN apt update && apt install git -y
+RUN DEBIAN_FRONTEND=noninteractive apt-get install maven -y 
 
-RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+RUN git clone https://github.com/elmcslay/DO_edu-HW12_CP.git /tmp/hw12
 
-RUN cd boxfuse-sample-java-war-hello/ && mvn package
+RUN cd /tmp/hw12 && mvn package
