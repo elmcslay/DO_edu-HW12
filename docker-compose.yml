@@ -4,7 +4,7 @@ services:
   build_poject:
     build:
       context: /build
-    volume:
+    volumes:
     - type: volume
       source: artifacts
       targer: /root/DO_edu-HW12_CP/target
