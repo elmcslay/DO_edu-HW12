@@ -22,8 +22,6 @@ services:
 
   db:
     image: mariadb:10.11
-    environment:
-      - MYSQL_ROOT_PASSWORD=test123
     ports:
     - 3306:3306
 
