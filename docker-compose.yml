@@ -1,14 +1,26 @@
 ---
 version: '3.7'
 services:
-  build_poject:
+  build_project:
     build:
       context: build/
     volumes:
     - type: volume
       source: artifacts
-      target: /tmp/hw12/target
+      target: /tmp/hw12
 
+  db:
+    image: mariadb:10.11
+    environment:
+      MARIADB_ROOT_PASSWORD: pass123
+      MARIADB_DATABASE: demo_hw12_db
+      MARIADB_USER: user
+      MARRIADB_PASSWORD: password
+    ports:
+    - 3306:3306
+    depends_on:
+    - build_project
+  
   web:
     image: tomcat:9-jre11
     volumes:
@@ -18,17 +30,9 @@ services:
     ports:
     - 8080:8080
     depends_on: 
-    - build_poject
+    - db
     links:
-    - "db:dd"
-
-  db:
-    image: mariadb:10.11
-    environment:
-      MYSQL_ROOT_PASSWORD: 123
-      MYSQL_DATABASE: dd
-    ports:
-    - 3306:3306
+    - db:demo_hw12_db
 
 volumes:
   artifacts:
