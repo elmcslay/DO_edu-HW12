@@ -22,7 +22,7 @@ services:
     - build_project
   
   web:
-    image: tomcat:9-jre11
+    image: tomcat:9-jre8
     volumes:
     - type: volume
       source: artifacts
